@@ -1,7 +1,7 @@
 System.config({
   "baseURL": "/",
   "paths": {
-    "*": "*.js",
+    "*": "src/*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
   }
@@ -9,10 +9,10 @@ System.config({
 
 System.config({
   "map": {
-    "aurelia/bootstrapper": "github:aurelia/bootstrapper@0.10.0",
-    "aurelia/framework": "github:aurelia/framework@0.9.0",
+    "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.10.0",
+    "aurelia-framework": "github:aurelia/framework@0.9.0",
     "font-awesome": "npm:font-awesome@4.3.0",
-    "twbs/bootstrap": "github:twbs/bootstrap@3.3.1",
+    "bootstrap": "github:twbs/bootstrap@3.3.1",
     "github:aurelia/binding@0.4.0": {
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.5.0",
       "aurelia-metadata": "github:aurelia/metadata@0.3.4",
