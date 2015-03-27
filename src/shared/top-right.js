@@ -1,14 +1,15 @@
 import {Behavior} from 'aurelia-framework';
-import jquery from 'jquery'
 
 export class TopRight {
     static metadata(){ return Behavior.withProperty('router'); }
 
+    get isFullScreenEnabled(){
+        return window.innerHeight == screen.height;
+    }
+
     launchFullscreen(){
 
-        if (!jquery(":root").hasClass("full-screen")) {
-
-            jquery(":root").addClass("full-screen");
+        if (!this.isFullScreenEnabled) {
 
             if (document.documentElement.requestFullscreen) {
                 document.documentElement.requestFullscreen();
@@ -22,8 +23,6 @@ export class TopRight {
 
         } else {
 
-            jquery(":root").removeClass("full-screen");
-
             if (document.exitFullscreen) {
                 document.exitFullscreen();
             } else if (document.mozCancelFullScreen) {
@@ -31,7 +30,6 @@ export class TopRight {
             } else if (document.webkitExitFullscreen) {
                 document.webkitExitFullscreen();
             }
-
         }
     }
 
