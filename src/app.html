@@ -1,16 +1,13 @@
 <template>
-    <require from='./shared/top-bar'></require>
-    <top-bar router.bind="router"></top-bar>
+    <div class="${isNavBarCollapsed ? 'hidden-menu-mobile-lock hidden-menu' : ''}">
+        <require from='./shared/top-bar'></require>
+        <top-bar router.bind="router"></top-bar>
 
-    <require from='./shared/nav-bar'></require>
-    <nav-bar router.bind="router"></nav-bar>
+        <require from='./shared/nav-bar'></require>
+        <nav-bar router.bind="router"></nav-bar>
 
-    <!-- #MAIN PANEL -->
-    <div id="main" role="main">
-
-        <router-view></router-view>
-
+        <div id="main" role="main">
+            <router-view></router-view>
+        </div>
     </div>
-    <!-- END #MAIN PANEL -->
-
 </template>

@@ -1,7 +1,13 @@
 import {Behavior} from 'aurelia-framework';
+import {EventAggregator} from 'aurelia-event-aggregator';
 
 export class TopRight {
     static metadata(){ return Behavior.withProperty('router'); }
+    static inject(){ return [EventAggregator]; }
+
+    constructor(eventAggregator){
+        this.eventAggregator = eventAggregator;
+    }
 
     get isFullScreenEnabled(){
         return window.innerHeight == screen.height;
@@ -34,6 +40,6 @@ export class TopRight {
     }
 
     toggleMenu(){
-        alert('Hello delegates');
+        this.eventAggregator.publish('toggleNavBar', {});
     }
 }
