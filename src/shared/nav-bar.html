@@ -1,23 +1,35 @@
 <template>
     <aside id="left-panel">
+        <div class="user-info">
+            <span>
+                <a href="javascript:void(0);" id="show-shortcut">
+                    <span id="activity"> <i class="fa fa-user"></i> </span>
+                    <span>User Name</span>
+                </a>
+            </span>
+        </div>
+
         <nav>
             <ul>
-                <li class="">
-                    <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
+                <li>
+                    <input type="checkbox" id="item-0-0" /><i class="fa fa-lg fa-fw fa-home"></i><label for="item-0-0">Dashboard</label>
+
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge">14</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Graphs</span></a>
+                    <input type="checkbox" id="item-1-0" />
+                    <i class="fa fa-lg fa-fw fa-bar-chart-o"></i>
+                    <label for="item-1-0">
+                        Charts
+                        <b></b>
+                    </label>
                     <ul>
                         <li>
-                            <a href="#">Chart.js <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
+                            <a href="#/charts/flot-chart">Flot chart</a>
+                        </li>
+                        <li>
+                            <a href="#/charts/chartjs">Chartjs</a>
                         </li>
                     </ul>
-                </li>
-                <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-                    <a href.bind="row.href">${row.title}</a>
                 </li>
             </ul>
         </nav>

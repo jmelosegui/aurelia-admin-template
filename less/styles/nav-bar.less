@@ -1,0 +1,125 @@
+@import "../variables";
+
+/*
+ * LEFT PANEL
+ */
+
+aside {
+  display: block;
+  /*overflow: hidden;*/
+  background: @asideColor-end;
+  /*background: url(@asideDataURL);*/
+  background: -moz-linear-gradient(left, @asideColor-end 93%, @asideColor-start 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(93%, @asideColor-end), color-stop(100%, @asideColor-start));
+  background: -webkit-linear-gradient(left, @asideColor-end 93%, @asideColor-start 100%);
+  background: -o-linear-gradient(left, @asideColor-end 93%, @asideColor-start 100%);
+  background: -ms-linear-gradient(left, @asideColor-end 93%, @asideColor-start 100%);
+  background: linear-gradient(to right, @asideColor-end 93%, @asideColor-start 100%);
+  min-height: 100%;
+}
+
+#left-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: @left-panel-zindex;
+  padding-top: @template-navbar-height;
+}
+
+nav ul {
+  width: 100%;
+  padding: 10px 10px 10px 12px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 0.5em;
+  list-style: none;
+  position: relative;
+}
+
+#left-panel ul > li,
+#left-panel ul > li > a,
+{
+  margin: 0;
+  line-height: normal;
+  font-size: @asideNavFontSize;
+  padding: 0;
+  color: @asideLinkColor;
+  display: block;
+  font-weight: normal;
+  text-decoration: none !important;
+  position: relative;
+}
+
+#left-panel input
+{
+  position: absolute;
+  opacity: 0;
+}
+
+#left-panel input ~ ul
+{
+  display: none;
+}
+
+#left-panel label,
+#left-panel label::before
+{
+  cursor: pointer;
+}
+
+#left-panel input:disabled + label
+{
+  cursor: default;
+  opacity: .6;
+}
+
+#left-panel input:checked:not(:disabled) ~ ul
+{
+  background: @asideNavActiveBGColor !important;
+  color: #fff !important;
+  display: block;
+}
+
+#left-panel input:checked:not(:disabled) ~ ul > li:last-child {
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+#left-panel label,
+#left-panel a,
+#left-panel label::before {
+  font-weight: normal;
+  padding-left: 5px;
+}
+
+#left-panel label::before {
+  content: "";
+  width: 16px;
+}
+
+#left-panel ul > li label > b {
+  position: absolute !important;
+  right: @asideNavExpanIconPush-x;
+  top: @asideNavExpanIconPush-y;
+}
+
+#left-panel ul > li > i {
+  margin-right: 5px;
+  width: 15px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+#left-panel input:checked:not(:disabled) ~ label > b:before {
+  content: "\f147";
+  font-family: FontAwesome;
+  font-size: @asideExpanIconSize;
+  background: @asideNavActiveBGColor !important;
+}
+
+
+#left-panel input:not(:checked):not(:disabled) ~ label > b:before {
+  content: "\f196";
+  font-family: FontAwesome;
+  font-size: @asideExpanIconSize;
+}

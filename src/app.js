@@ -9,10 +9,14 @@ export class App {
         this.eventAggregator = eventAggregator;
         this.router = router;
         this.router.configure(config => {
-            config.title = 'Aurelia Admin Template';
-            config.map([
-                { route: ['','welcome'], moduleId: './welcome', nav: true, title:'Welcome Test' }
-            ]);
+            config.title = 'AUdmin Template';
+            config.mapUnknownRoutes(instruction => {
+                //check instruction.fragment
+                let moduleId = `./modules/${instruction.fragment}`;
+
+                //set instruction.config.moduleId
+                instruction.config.moduleId = moduleId;
+            });
         });
     }
 

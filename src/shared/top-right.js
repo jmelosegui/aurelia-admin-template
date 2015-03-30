@@ -9,13 +9,13 @@ export class TopRight {
         this.eventAggregator = eventAggregator;
     }
 
-    get isFullScreenEnabled(){
+    static get isFullScreenEnabled(){
         return window.innerHeight == screen.height;
     }
 
     launchFullscreen(){
 
-        if (!this.isFullScreenEnabled) {
+        if (!TopRight.isFullScreenEnabled) {
 
             if (document.documentElement.requestFullscreen) {
                 document.documentElement.requestFullscreen();
